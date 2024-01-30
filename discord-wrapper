@@ -3,4 +3,4 @@
 FETCHED_VERSION="$(curl -Ls -o /dev/null -w %{url_effective} 'https://discord.com/api/download?platform=linux&format=txt' | grep -o -P '(?<=/discord-).*(?=.txt)')"
 DISCORD_DIR="$(dirname $(realpath $(which discord)))"
 sed -E 's/\"version\" *\: *\"([0-9\.]*)\"/\"version\"\: \"'"$FETCHED_VERSION"'\"/g' "$DISCORD_DIR/resources/build_info.json" > "$DISCORD_DIR/resources/build_info.json"
-exec "$DISCORD_DIR/discord" $@
+exec "$DISCORD_DIR/Discord" $@
